@@ -1,39 +1,12 @@
-'use client'
-
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { useState } from 'react'
+
+export const metadata = {
+  title: '会員登録 - サポ村.com',
+  description: 'サポーター村を作る会の会員登録フォームです。',
+}
 
 export default function RegisterPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // ここでフォーム送信処理を実装
-    // 現在はダミーの処理
-    setTimeout(() => {
-      setSubmitStatus('success')
-      setIsSubmitting(false)
-      setFormData({ name: '', email: '', phone: '', message: '' })
-    }, 1000)
-  }
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -46,7 +19,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="container mx-auto px-4 py-12">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-samurai-blue p-6 rounded-lg mb-8">
               <h2 className="text-xl font-bold text-samurai-blue mb-2">
                 会員登録について
@@ -57,88 +30,19 @@ export default function RegisterPage() {
               </p>
             </div>
 
-            {submitStatus === 'success' && (
-              <div className="bg-green-50 border-l-4 border-green-400 p-6 rounded-lg mb-8">
-                <p className="text-green-800 font-bold">
-                  ✓ 登録申請を受け付けました。ありがとうございます!
-                </p>
-                <p className="text-green-700 mt-2">
-                  ご入力いただいたメールアドレスに確認メールをお送りします。
-                </p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md">
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-                  お名前 <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-samurai-blue"
-                  placeholder="山田 太郎"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-                  メールアドレス <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-samurai-blue"
-                  placeholder="example@email.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="phone" className="block text-gray-700 font-bold mb-2">
-                  電話番号
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-samurai-blue"
-                  placeholder="090-1234-5678"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
-                  メッセージ・ご要望など
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-samurai-blue"
-                  placeholder="ご質問やご要望があればお書きください"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-samurai-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfdV4DYSEAiT3EvLoMtPh3cxKpovpqK4cAqArIUZDlAnpMiwA/viewform?embedded=true" 
+                width="100%" 
+                height="2105" 
+                frameBorder="0" 
+                marginHeight={0} 
+                marginWidth={0}
+                className="w-full"
               >
-                {isSubmitting ? '送信中...' : '登録する'}
-              </button>
-            </form>
+                読み込んでいます…
+              </iframe>
+            </div>
 
             <div className="mt-8 text-center text-gray-600 text-sm">
               <p>
