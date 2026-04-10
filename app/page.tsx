@@ -1,8 +1,13 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { getNewsList } from '@/lib/microcms'
 
-export default function Home() {
+export default async function Home() {
+  // microCMSからニュースを取得
+  const newsData = await getNewsList(5).catch(() => ({ contents: [] }))
+  const newsList = newsData.contents
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -11,7 +16,6 @@ export default function Home() {
 
         {/* ── Hero Section ── */}
         <section className="relative overflow-hidden" style={{ backgroundImage: "url('/hero_collage.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          {/* 薄い黒オーバーレイ（テキスト可読性のみ） */}
           <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.32)' }} />
 
           <div className="relative container mx-auto px-6 py-28 md:py-36 text-center">
@@ -25,16 +29,10 @@ export default function Home() {
               サポーターが作る、サポーターのための、<br />サポーターによるツアー
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/about"
-                className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-md"
-              >
+              <Link href="/about" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-md">
                 サポ村について
               </Link>
-              <Link
-                href="/register"
-                className="bg-transparent text-white border border-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 transition-colors"
-              >
+              <Link href="/register" className="bg-transparent text-white border border-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 transition-colors">
                 会員登録 →
               </Link>
             </div>
@@ -49,29 +47,18 @@ export default function Home() {
                 <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-2">Message</p>
                 <h2 className="text-3xl font-bold text-gray-900">代表メッセージ</h2>
               </div>
-
               <div className="bg-white rounded-2xl p-10 border border-gray-100 shadow-sm">
                 <div className="space-y-5 text-gray-700 leading-relaxed text-base">
-                  <p>
-                    私たちは、サッカー日本代表を応援するために発足した、サポーターによるサポーターのための団体、
-                    サポーター村をつくる会、通称「サポ村」です。
-                  </p>
+                  <p>私たちは、サッカー日本代表を応援するために発足した、サポーターによるサポーターのための団体、サポーター村をつくる会、通称「サポ村」です。</p>
                   <p>
                     何度も国際大会やアウェイの地に足を運んだベテランの知恵も、<br />
                     初めての海外に行く方の勇気も、<br />
                     家族で安心して楽しむ最高の笑顔も、<br />
                     みんなの力が、日本を勝利へ導くための力になります。
                   </p>
-                  <p>
-                    世代も職業も超え、互いの「安心・安全」を支え合い、
-                    一人ひとりの「応援」を全力でサポートします。
-                  </p>
-                  <p>
-                    世界のスタジアムで、サッカー日本代表の選手たちの背中を現地で後押しし、
-                    みんなで世界一の座を勝ち取りましょう。
-                  </p>
+                  <p>世代も職業も超え、互いの「安心・安全」を支え合い、一人ひとりの「応援」を全力でサポートします。</p>
+                  <p>世界のスタジアムで、サッカー日本代表の選手たちの背中を現地で後押しし、みんなで世界一の座を勝ち取りましょう。</p>
                 </div>
-
                 <div className="mt-8 pt-6 border-t border-gray-100">
                   <p className="text-xs text-gray-400 mb-0.5">サポーター村をつくる会（サポ村）</p>
                   <p className="font-bold text-gray-900">代表　堀内 文雄</p>
@@ -91,16 +78,13 @@ export default function Home() {
             <p className="text-blue-100 text-lg mb-10 max-w-lg mx-auto">
               世界のスタジアムにも、応援を届けよう！
             </p>
-            <Link
-              href="/register"
-              className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg"
-            >
+            <Link href="/register" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
               今すぐ会員登録
             </Link>
           </div>
         </section>
 
-        {/* ── Latest Updates Section ── */}
+        {/* ── News Section（microCMSから取得） ── */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
@@ -109,15 +93,30 @@ export default function Home() {
             </div>
 
             <div className="max-w-2xl mx-auto space-y-4">
-              <div className="flex gap-6 items-start p-6 rounded-2xl border border-gray-100 hover:bg-gray-50 transition-colors">
-                <div className="text-sm text-gray-400 whitespace-nowrap pt-0.5">2026.04.11</div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">ウェブサイトオープン</h3>
-                  <p className="text-gray-500 text-sm">
-                    サポーター村を作る会の公式ウェブサイトがオープンしました。
-                  </p>
+              {newsList.length > 0 ? (
+                newsList.map((news) => (
+                  <Link
+                    key={news.id}
+                    href={`/news/${news.id}`}
+                    className="flex gap-6 items-start p-6 rounded-2xl border border-gray-100 hover:bg-gray-50 transition-colors block"
+                  >
+                    <div className="text-sm text-gray-400 whitespace-nowrap pt-0.5">
+                      {new Date(news.date).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">{news.title}</h3>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <div className="flex gap-6 items-start p-6 rounded-2xl border border-gray-100">
+                  <div className="text-sm text-gray-400 whitespace-nowrap pt-0.5">2026.04.11</div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">ウェブサイトオープン</h3>
+                    <p className="text-gray-500 text-sm">サポーター村を作る会の公式ウェブサイトがオープンしました。</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
