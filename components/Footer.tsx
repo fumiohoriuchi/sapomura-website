@@ -12,8 +12,7 @@ export default function Footer() {
             <p className="text-sm text-gray-400 leading-relaxed">
               私たちは、サッカー日本代表を応援するために発足した、<br />
               サポーターによるサポーターのための団体、<br />
-              サポーター村をつくる会、通称「サポ村」です。<br />
-              サポーターによるツアー
+              サポーター村をつくる会、通称「サポ村」です。
             </p>
           </div>
 

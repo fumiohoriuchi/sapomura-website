@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getNewsList } from '@/lib/microcms'
 
@@ -26,13 +27,10 @@ export default async function Home() {
             </h1>
             <p className="text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed"
                style={{ color: 'rgba(255,255,255,0.88)', textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
-              サポーターが作る、サポーターのための、<br />サポーターによるツアー
+              サポーターが作る、サポーターのための、<br />サポーターによるコミュニティー
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/about" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-md">
-                サポ村について
-              </Link>
-              <Link href="/register" className="bg-transparent text-white border border-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 transition-colors">
+              <Link href="/register" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-md">
                 会員登録 →
               </Link>
             </div>
@@ -66,6 +64,27 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        {/* メッセージ写真 */}
+<div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+  <div className="rounded-2xl overflow-hidden shadow-md">
+    <Image
+      src="/message_photo1.jpg"
+      alt="サポーター集合写真"
+      width={800}
+      height={600}
+      className="w-full h-64 object-cover"
+    />
+  </div>
+  <div className="rounded-2xl overflow-hidden shadow-md">
+    <Image
+      src="/message_photo2.jpg"
+      alt="スタジアムでの応援"
+      width={600}
+      height={800}
+      className="w-full h-64 object-cover"
+    />
+  </div>
+</div>
         </section>
 
         {/* ── CTA Section ── */}
