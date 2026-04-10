@@ -1,37 +1,45 @@
-()
+import Link from 'next/link'
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-samurai-blue text-white mt-auto">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <footer className="bg-gray-900 text-white mt-auto">
+      <div className="container mx-auto px-6 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">サポ村.com</h3>
-            <p className="text-sm text-gray-200">
-              サポーターが作るサポーターのための<br />
+            <h3 className="text-lg font-bold mb-3">サポーター村をつくる会（サポ村）</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              サポーターが作る、サポーターのための、<br />
               サポーターによるツアー
             </p>
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-4">リンク</h3>
+            <h3 className="text-sm font-bold mb-3 text-gray-400 uppercase tracking-widest">Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="hover:text-gray-300 transition-colors">
+                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
                   サポ村について
                 </Link>
               </li>
               <li>
-                <Link href="/achievements" className="hover:text-gray-300 transition-colors">
+                <Link href="/achievements" className="text-gray-300 hover:text-white transition-colors">
                   過去の実績
                 </Link>
               </li>
               <li>
-                <Link href="/schedule" className="hover:text-gray-300 transition-colors">
+                <Link href="/schedule" className="text-gray-300 hover:text-white transition-colors">
                   現在の日程
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-gray-300 transition-colors">
+                <Link href="/register" className="text-gray-300 hover:text-white transition-colors">
+                  会員登録
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
                   お問い合わせ
                 </Link>
               </li>
@@ -39,8 +47,8 @@
           </div>
         </div>
 
-        <div className="border-t border-gray-600 mt-8 pt-8 text-center text-sm text-gray-300">
-          <p>&copy; {currentYear} サポーター村を作る会. All rights reserved.</p>
+        <div className="border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+          <p>&copy; {currentYear} サポーター村をつくる会（サポ村）. All rights reserved.</p>
         </div>
       </div>
     </footer>
