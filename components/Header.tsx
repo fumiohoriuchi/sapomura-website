@@ -9,9 +9,6 @@ export default function Header() {
 
   const navItems = [
     { name: 'トップ', href: '/' },
-    { name: 'サポ村について', href: '/about' },
-    { name: '過去の実績', href: '/achievements' },
-    { name: '現在の日程', href: '/schedule' },
     { name: '会員登録', href: '/register' },
     { name: 'お問い合わせ', href: '/contact' },
   ]

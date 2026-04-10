@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: '会員登録 - サポ村.com',
-  description: 'サポーター村を作る会の会員登録フォームです。',
+  description: 'サポーター村をつくる会の会員登録フォームです。',
 }
 
 export default function RegisterPage() {
@@ -25,27 +25,19 @@ export default function RegisterPage() {
                 会員登録について
               </h2>
               <p className="text-gray-700">
-                サポーター村を作る会の会員になると、ツアーやイベントに関する情報をお届けします。
+                サポーター村をつくる会の会員になると、イベント等に関するお知らせをお届けします。
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfdV4DYSEAiT3EvLoMtPh3cxKpovpqK4cAqArIUZDlAnpMiwA/viewform?embedded=true" 
-                width="100%" 
-                height="2105" 
-                frameBorder="0" 
-                marginHeight={0} 
-                marginWidth={0}
-                className="w-full"
-              >
-                読み込んでいます…
-              </iframe>
+
+	　　　<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvZZrJYC7T7JHXhQXqyPjSjyLuPi2iu7_mp2o5t8mlwBwJkA/viewform?embedded=true" 
+		width="100%" height="2200" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
             </div>
 
             <div className="mt-8 text-center text-gray-600 text-sm">
               <p>
-                ご登録いただいた個人情報は、サポーター村を作る会の活動目的以外には使用いたしません。
+                ご登録いただいた個人情報は、サポーター村をつくる会の活動目的以外には使用いたしません。
               </p>
             </div>
           </div>

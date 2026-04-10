@@ -10,7 +10,9 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-3">サポーター村をつくる会（サポ村）</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
-              サポーターが作る、サポーターのための、<br />
+              私たちは、サッカー日本代表を応援するために発足した、<br />
+              サポーターによるサポーターのための団体、<br />
+              サポーター村をつくる会、通称「サポ村」です。<br />
               サポーターによるツアー
             </p>
           </div>
@@ -18,21 +20,6 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold mb-3 text-gray-400 uppercase tracking-widest">Links</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
-                  サポ村について
-                </Link>
-              </li>
-              <li>
-                <Link href="/achievements" className="text-gray-300 hover:text-white transition-colors">
-                  過去の実績
-                </Link>
-              </li>
-              <li>
-                <Link href="/schedule" className="text-gray-300 hover:text-white transition-colors">
-                  現在の日程
-                </Link>
-              </li>
               <li>
                 <Link href="/register" className="text-gray-300 hover:text-white transition-colors">
                   会員登録

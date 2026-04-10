@@ -79,13 +79,14 @@ export default async function Home() {
               世界のスタジアムにも、応援を届けよう！
             </p>
             <Link href="/register" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              今すぐ会員登録
+              会員登録はこちら
             </Link>
           </div>
         </section>
 
+
         {/* ── News Section（microCMSから取得） ── */}
-        <section className="py-20 bg-white">
+{/*        <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-2">News</p>
@@ -120,7 +121,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-
+*/}
       </main>
 
       <Footer />
