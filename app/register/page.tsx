@@ -32,7 +32,7 @@ export default function RegisterPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
 
 	　　　<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvZZrJYC7T7JHXhQXqyPjSjyLuPi2iu7_mp2o5t8mlwBwJkA/viewform?embedded=true" 
-		width="100%" height="2200" frameBorder="0" marginHeight="0" marginWidth="0">読み込んでいます…</iframe>
+		 style={{ width: '100%', height: '2200px', border: 0 }}>読み込んでいます…</iframe>
             </div>
 
             <div className="mt-8 text-center text-gray-600 text-sm">
