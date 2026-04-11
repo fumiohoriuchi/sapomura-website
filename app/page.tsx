@@ -27,7 +27,7 @@ export default async function Home() {
             </h1>
             <p className="text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed"
                style={{ color: 'rgba(255,255,255,0.88)', textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
-              サポーターが作る、サポーターのための、<br />サポーターによるコミュニティー
+              サポーターによるサポーターのためのコミュニティ
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/register" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-md">
@@ -47,7 +47,7 @@ export default async function Home() {
               </div>
               <div className="bg-white rounded-2xl p-10 border border-gray-100 shadow-sm">
                 <div className="space-y-5 text-gray-700 leading-relaxed text-base">
-                  <p>私たちは、サッカー日本代表を応援するために発足した、サポーターによるサポーターのための団体、サポーター村をつくる会、通称「サポ村」です。</p>
+                  <p>私たちは、サッカー日本代表を応援するために発足した、サポーターによるサポーターのためのコミュニティ、サポーター村をつくる会、通称「サポ村」です。</p>
                   <p>
                     何度も国際大会やアウェイの地に足を運んだベテランの知恵も、<br />
                     初めての海外に行く方の勇気も、<br />

@@ -10,9 +10,9 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-3">サポーター村をつくる会（サポ村）</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
-              私たちは、サッカー日本代表を応援するために発足した、<br />
-              サポーターによるサポーターのための団体、<br />
-              サポーター村をつくる会、通称「サポ村」です。
+              私たちは、サッカー日本代表を応援するために発足した<br />
+              サポーターによるサポーターのためのコミュニティー<br />
+              サポーター村をつくる会、通称「サポ村」です
             </p>
           </div>
 
